@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PassFinder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <img
+        id="logo"
+        src="./assets/passfinder_logo.svg"
+        alt="PassFinder banner"
+      />
+    </header>
+
+    <section class="questions">
+      <h1>Generate a random password!</h1>
+
+      <h2>Select the character-types you would like to include.</h2>
+
+      <section class="checkboxes">
+        <input
+          class="pop"
+          id="selectAll"
+          tabindex="0"
+          type="checkbox"
+          name="allbox"
+          value="all"
+        /><label for="selectAll"
+          >Include All Character Types <span>(RECOMMENDED)</span></label
+        ><br />
+
+        <input
+          class="pop"
+          id="upper"
+          type="checkbox"
+          name="upperbox"
+          value="upper"
+        /><label for="upper">Include Uppercase</label><br />
+
+        <input
+          class="pop"
+          id="lower"
+          type="checkbox"
+          name="lowerbox"
+          value="lower"
+        /><label for="lower">Include Lowercase</label><br />
+
+        <input
+          class="pop"
+          id="numerals"
+          type="checkbox"
+          name="numeralbox"
+          value="numeral"
+        /><label for="numerals">Include Numerals</label><br />
+
+        <input
+          class="pop"
+          id="special"
+          type="checkbox"
+          name="specialbox"
+          value="special"
+        /><label for="special">Include Special Characters</label><br />
+      </section>
+
+      <h2>Enter a password length below.</h2>
+
+      <textarea
+        id="char-choice"
+        placeholder="(Min. 8 to Max. 128 Characters)"
+        aria-label="Generated Password"
+      ></textarea>
+      <h4 class="error" id="char-error">
+        Password must include at least one of the character-types listed. Please
+        choose one or more.
+      </h4>
+      <h4 class="error" id="length-error">
+        Password length must fall between 8–128 characters. Please choose a
+        valid length.
+      </h4>
+      <br />
+      <button class="generate btn">
+        <h2 class="genbtn">Generate Password</h2>
+      </button>
+      <br />
+
+      <h3 class="prev-title">Click a password to copy it!</h3>
+      <div id="history-area"></div>
+
+      <img class="bgd" src="./assets/lock.svg" alt="Background Image" />
+    </section>
+
+    <footer>
+      <h5>Made by Kevin Lewis</h5>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/kevin-lewis92126/"
+          ><img id="linkedin" src="/assets/LI-In-Bug.svg" alt="LinkedIn logo"
+        /></a>
+        <a href="https://github.com/KPL33"
+          ><img id="github" src="/assets/Github.svg" alt="GitHub logo"
+        /></a>
+        <a href="https://leetcode.com/KPL33/"
+          ><img
+            id="leetcode"
+            src="/assets/leetcode_logo.svg"
+            alt="LeetCode logo"
+        /></a>
+      </div>
+    </footer>
+
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
