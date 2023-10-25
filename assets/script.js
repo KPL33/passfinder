@@ -161,6 +161,14 @@ selectAllCheckbox.addEventListener("change", () => {
 
 generateBtn.addEventListener("click", () => {
   const charInput = document.querySelector("#char-choice");
+
+  charInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevent the default behavior (creating a new line)
+      generateBtn.click(); // Trigger the click event of the Generate Password button
+    }
+  });
+  
   const charInputValue = charInput.value;
   passwordLength = parseInt(charInputValue);
 
