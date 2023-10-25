@@ -94,7 +94,6 @@ label,
 }
 
 .questions {
-  font-family: "Alata", sans-serif;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -165,9 +164,9 @@ span {
 textarea {
   margin: 10px;
   max-height: 75px;
-  width: 100px;
-  font-size: 35px;
-  padding-top: 15px;
+  width: 150px;
+  font-size: 45px;
+  padding-top: 12px;
   font-family: "Russo one", sans-serif;
 }
 
@@ -226,13 +225,16 @@ textarea::placeholder {
   border-radius: 25px;
   background-color: var(--gray);
   color: var(--red);
-  font-family: "Alata", sans-serif;
   padding: 10px;
   margin: 8px;
   min-width: 80px;
   height: auto;
   overflow-wrap: break-word;
   cursor: pointer;
+}
+
+.questions, .password-button, h5 {
+  font-family: "Alata", sans-serif;
 }
 
 footer {

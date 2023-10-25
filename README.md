@@ -1,39 +1,37 @@
-# <span style="color: yellow;">**_Random Password Generator_**</span>
+# <span style="color: yellow;">**_PassFinder_**</span>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 </br>
 
 ## Overview
 
-Tired of thinking of long, complex passwords? Use this simple app to randomly-generate a password for you!
+Tired of thinking of long, complex passwords? Use this single-page app to generate a password for you!
 </br>
 
 ## Application Instructions
 
-1. Visit https://kpl33.github.io/pwd_gen/ to use this app.</br>
-2. Click the "Generate Password" button.</br>
+1. Visit https://candid-snickerdoodle-e60aa3.netlify.app/</br>
+2. Select the types of characters you would like to include in your password.
+3. Click the "Generate Password" button.</br>
 3. Follow the on-screen prompts to establish a password length.</br>
 4. Follow more prompts to choose preferences on what types of characters you'd like your password to include.</br>
 
-## Static Screen-Captures of the Application
+## App Screenshots
 
-![Password generator running on webpage. Initially blank](./assets/example1.png)
-
-##
-
-![Prompt, asking for preferred password length](./assets/example2.png)
+![Password generator running on webpage. No previous passwords shown.](./assets/passfinder1.png)
 
 ##
 
-![Prompt, asking for preferred characters to include in password](./assets/example3.png)
+![Password generator running on webpage. 5 Previous passwords shown.](./assets/passfinder2.png)
 
 ##
 
-![Generated password](./assets/example4.png)
+## Technologies Utilized
 
-##
+• HTML</br>
+• CSS</br>
+• JavaScript
 
-</br>
 
 ## Contributors To This Application
 
@@ -43,7 +41,8 @@ Kevin Lewis
 
 # <span style="color: lightgreen;">**_Thank you for using this App!_**</span>
 
-## Questions? Contact the Developer @...
+## Contact me @...
 
-https://github.com/KPL33 on GitHub</br>
-or via Email: kevinsname2003@yahoo.com
+<img src="./assets/email.svg" width=7% height=9% align=center>&nbsp; kplewis33@gmail.com
+
+<img src="./assets/Github.svg" width=7% height=9% align=center>&nbsp; https://github.com/KPL33

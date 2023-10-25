@@ -182,11 +182,7 @@ generateBtn.addEventListener("click", () => {
 
   if (!hasLengthError && !hasCharError) {
     const newPass = generatePassword();
-    addToLast(newPass);
-    updateLast();
-
-    populatePasswordHistory();
-
+    
     const passwordButton = createPasswordButton(newPass);
     historyArea.appendChild(passwordButton);
 
@@ -195,11 +191,45 @@ generateBtn.addEventListener("click", () => {
     if (displayedButtons.length > maxPass) {
       historyArea.removeChild(displayedButtons[maxPass]);
     }
+
+    addToLast(newPass);
+    updateLast();
+
+    populatePasswordHistory();
+    updateTitleVisibility(); 
+  }
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    generateBtn.click(); // Trigger the click event of the Generate Password button
   }
 });
 
 window.addEventListener("load", () => {
   populatePasswordHistory();
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    const focusedElement = document.activeElement;
+    if (focusedElement && focusedElement.type === "checkbox") {
+      focusedElement.click();
+    }
+  }
+});
+
+const updateTitleVisibility = () => {
+  const prevTitle = document.querySelector(".prev-title");
+  prevTitle.style.display = lastPass.length > 0 ? "block" : "none";
+};
+
+// Initialize the title visibility
+updateTitleVisibility();
+
+window.addEventListener("load", () => {
+  populatePasswordHistory();
+  updateTitleVisibility();
 });
 
 document.addEventListener("keydown", function (event) {
