@@ -145,6 +145,11 @@ characterTypeCheckboxes.forEach((checkbox, index) => {
         includeSpecial = checkbox.checked;
         break;
     }
+
+    const allChecked = characterTypeCheckboxes.every(checkbox => checkbox.checked);
+
+    selectAllCheckbox.checked = allChecked;
+
   });
 });
 
