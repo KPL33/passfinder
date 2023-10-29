@@ -1,6 +1,6 @@
-const lengthError = document.querySelector("#length-error");
-const charError = document.querySelector("#char-error");
-const generateBtn = document.querySelector(".generate");
+const lengthError = document.querySelector('#length-error');
+const charError = document.querySelector('#char-error');
+const generateBtn = document.querySelector('.generate');
 const maxPass = 10;
 
 let passwordLength;
@@ -8,22 +8,22 @@ let includeUpper;
 let includeLower;
 let includeNumerals;
 let includeSpecial;
-let historyArea = document.querySelector("#history-area");
+let historyArea = document.querySelector('#history-area');
 
-const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const numerals = "0123456789";
-const special = "!@#$%^&*-_+=<>?;:|";
+const lowerCase = 'abcdefghijklmnopqrstuvwxyz';
+const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const numerals = '0123456789';
+const special = '!@#$%^&*-_+=<>?;:|';
 
 const copyToClipboard = (text) => {
-  const tempInput = document.createElement("input");
+  const tempInput = document.createElement('input');
   tempInput.value = text;
   document.body.appendChild(tempInput);
 
   tempInput.select();
   tempInput.setSelectionRange(0, 99999);
 
-  document.execCommand("copy");
+  document.execCommand('copy');
 
   document.body.removeChild(tempInput);
 };
@@ -34,10 +34,10 @@ const generatePassword = () => {
     passwordLength > 128 ||
     (!includeUpper && !includeLower && !includeNumerals && !includeSpecial)
   ) {
-    return "";
+    return '';
   }
 
-  let password = "";
+  let password = '';
   const requiredChars = [];
 
   if (includeUpper) {
@@ -70,17 +70,17 @@ const generatePassword = () => {
     password += randomChar;
   }
 
-  password = password.split("");
+  password = password.split('');
   for (let i = password.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [password[i], password[j]] = [password[j], password[i]];
   }
-  password = password.join("");
+  password = password.join('');
 
   return password;
 };
 
-const lastPass = JSON.parse(localStorage.getItem("lastPass")) || [];
+const lastPass = JSON.parse(localStorage.getItem('lastPass')) || [];
 
 const addToLast = (password) => {
   lastPass.unshift(password);
@@ -91,15 +91,15 @@ const addToLast = (password) => {
 };
 
 const updateLast = () => {
-  localStorage.setItem("lastPass", JSON.stringify(lastPass));
+  localStorage.setItem('lastPass', JSON.stringify(lastPass));
 };
 
 const createPasswordButton = (password) => {
-  const passwordButton = document.createElement("button");
-  passwordButton.classList.add("password-button");
+  const passwordButton = document.createElement('button');
+  passwordButton.classList.add('password-button');
   passwordButton.textContent = password;
 
-  passwordButton.addEventListener("click", () => {
+  passwordButton.addEventListener('click', () => {
     copyToClipboard(password);
   });
 
@@ -107,8 +107,8 @@ const createPasswordButton = (password) => {
 };
 
 const populatePasswordHistory = () => {
-  const historyArea = document.querySelector("#history-area");
-  historyArea.innerHTML = "";
+  const historyArea = document.querySelector('#history-area');
+  historyArea.innerHTML = '';
 
   lastPass.forEach((password) => {
     const passwordButton = createPasswordButton(password);
@@ -116,11 +116,11 @@ const populatePasswordHistory = () => {
   });
 };
 
-const upperCheckbox = document.querySelector("#upper");
-const lowerCheckbox = document.querySelector("#lower");
-const numeralsCheckbox = document.querySelector("#numerals");
-const specialCheckbox = document.querySelector("#special");
-const selectAllCheckbox = document.querySelector("#selectAll");
+const upperCheckbox = document.querySelector('#upper');
+const lowerCheckbox = document.querySelector('#lower');
+const numeralsCheckbox = document.querySelector('#numerals');
+const specialCheckbox = document.querySelector('#special');
+const selectAllCheckbox = document.querySelector('#selectAll');
 
 const characterTypeCheckboxes = [
   upperCheckbox,
@@ -130,7 +130,7 @@ const characterTypeCheckboxes = [
 ];
 
 characterTypeCheckboxes.forEach((checkbox, index) => {
-  checkbox.addEventListener("change", () => {
+  checkbox.addEventListener('change', () => {
     switch (index) {
       case 0:
         includeUpper = checkbox.checked;
@@ -153,7 +153,7 @@ characterTypeCheckboxes.forEach((checkbox, index) => {
   });
 });
 
-selectAllCheckbox.addEventListener("change", () => {
+selectAllCheckbox.addEventListener('change', () => {
   characterTypeCheckboxes.forEach((checkbox) => {
     checkbox.checked = selectAllCheckbox.checked;
   });
@@ -164,32 +164,32 @@ selectAllCheckbox.addEventListener("change", () => {
   includeSpecial = selectAllCheckbox.checked;
 });
 
-generateBtn.addEventListener("click", () => {
-  const charInput = document.querySelector("#char-choice");
+generateBtn.addEventListener('click', () => {
+  const charInput = document.querySelector('#char-choice');
 
-  charInput.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-      event.preventDefault(); // Prevent the default behavior (creating a new line)
-      generateBtn.click(); // Trigger the click event of the Generate Password button
+  charInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      generateBtn.click();
     }
   });
   
   const charInputValue = charInput.value;
   passwordLength = parseInt(charInputValue);
 
-  lengthError.style.display = "none";
-  charError.style.display = "none";
+  lengthError.style.display = 'none';
+  charError.style.display = 'none';
 
   let hasLengthError = false;
   let hasCharError = false;
 
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
-    lengthError.style.display = "block";
+    lengthError.style.display = 'block';
     hasLengthError = true;
   }
 
   if (!includeUpper && !includeLower && !includeNumerals && !includeSpecial) {
-    charError.style.display = "block";
+    charError.style.display = 'block';
     hasCharError = true;
   }
 
@@ -199,7 +199,7 @@ generateBtn.addEventListener("click", () => {
     const passwordButton = createPasswordButton(newPass);
     historyArea.appendChild(passwordButton);
 
-    const displayedButtons = document.querySelectorAll(".password-button");
+    const displayedButtons = document.querySelectorAll('.password-button');
 
     if (displayedButtons.length > maxPass) {
       historyArea.removeChild(displayedButtons[maxPass]);
@@ -213,43 +213,25 @@ generateBtn.addEventListener("click", () => {
   }
 });
 
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    generateBtn.click(); // Trigger the click event of the Generate Password button
-  }
-});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    generateBtn.click();
 
-window.addEventListener("load", () => {
-  populatePasswordHistory();
-});
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
     const focusedElement = document.activeElement;
-    if (focusedElement && focusedElement.type === "checkbox") {
+    if (focusedElement && focusedElement.type === 'checkbox') {
       focusedElement.click();
     }
   }
 });
 
 const updateTitleVisibility = () => {
-  const prevTitle = document.querySelector(".prev-title");
-  prevTitle.style.display = lastPass.length > 0 ? "block" : "none";
+  const prevTitle = document.querySelector('.prev-title');
+  prevTitle.style.display = lastPass.length > 0 ? 'block' : 'none';
 };
 
-// Initialize the title visibility
 updateTitleVisibility();
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   populatePasswordHistory();
   updateTitleVisibility();
-});
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    const focusedElement = document.activeElement;
-    if (focusedElement && focusedElement.type === "checkbox") {
-      focusedElement.click();
-    }
-  }
 });
