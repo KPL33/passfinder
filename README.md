@@ -13,8 +13,8 @@ Tired of thinking of long, complex passwords? Use this single-page app to genera
 1. Visit https://candid-snickerdoodle-e60aa3.netlify.app/</br>
 2. Select the types of characters you would like to include in your password.
 3. Click the "Generate Password" button.</br>
-3. Follow the on-screen prompts to establish a password length.</br>
-4. Follow more prompts to choose preferences on what types of characters you'd like your password to include.</br>
+4. Follow the on-screen prompts to establish a password length.</br>
+5. Follow more prompts to choose preferences on what types of characters you'd like your password to include.</br>
 
 ## App Screenshots
 
@@ -31,7 +31,6 @@ Tired of thinking of long, complex passwords? Use this single-page app to genera
 • HTML</br>
 • CSS</br>
 • JavaScript
-
 
 ## Contributors To This Application
 
