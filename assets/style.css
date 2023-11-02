@@ -201,6 +201,55 @@ textarea::placeholder {
   background-color: var(--black);
 }
 
+.password-button {
+  position: relative;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--gray);
+  color: var(--red);
+  padding: 10px;
+  margin: 8px;
+  min-width: 80px;
+  height: auto;
+  overflow-wrap: break-word;
+  cursor: pointer;
+}
+
+.tooltip {
+  display: block; /* Initially hidden */
+  font-size: 12px;
+  padding: 5px 10px;
+  background-color: var(--black);
+  color: var(--yellow);
+  border-radius: 15px;
+  position: absolute;
+  top: 0; /* Starting position */
+  left: 50%;
+  transform: translateX(-50%) translateY(0); /* Initial transform */
+  white-space: nowrap;
+  opacity: 0; /* Initially fully transparent */
+  animation: tooltipAnimation 2s ease;
+}
+
+@keyframes tooltipAnimation {
+  0% {
+    transform: translateX(-50%) translateY(130px) rotate(-15deg); /* Move up by 100px */
+    opacity: 0; /* Fully transparent at the start */
+  }
+  50% {
+    transform: translateX(-50%) translateY(100px) rotate(-15deg); /* Stay still for a bit */
+    opacity: 1; /* Begin fading in */
+  }
+  100% {
+    transform: translateX(-50%) translateY(130px) rotate(15deg); /* Stay still for a bit */
+    opacity: 0; /* Begin fading in */
+  }
+}
+
+.password-button.tooltip {
+  display: block;
+}
+
 .password-button:hover {
   background-color: var(--black);
   color: var(--white);
@@ -218,19 +267,6 @@ textarea::placeholder {
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-}
-
-.password-button {
-  border: none;
-  border-radius: 25px;
-  background-color: var(--gray);
-  color: var(--red);
-  padding: 10px;
-  margin: 8px;
-  min-width: 80px;
-  height: auto;
-  overflow-wrap: break-word;
-  cursor: pointer;
 }
 
 .questions, .password-button, h5 {

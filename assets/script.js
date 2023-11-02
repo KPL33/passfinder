@@ -101,8 +101,24 @@ const createPasswordButton = (password) => {
 
   passwordButton.addEventListener('click', () => {
     copyToClipboard(password);
+
+    const tooltip = document.createElement('span');
+    tooltip.textContent = 'Copied!';
+    tooltip.classList.add('tooltip');
+    
+    const rect = passwordButton.getBoundingClientRect();
+    tooltip.style.left = rect.left + rect.width / 2 + 'px';
+    tooltip.style.top = rect.top - 30 + 'px';
+  
+    // Append the tooltip to the body
+    document.body.appendChild(tooltip);
+  
+    setTimeout(() => {
+      document.body.removeChild(tooltip); // Remove the tooltip element
+    }, 2000);
   });
 
+  //Finally, we are "return"ed our "passwordButton".
   return passwordButton;
 };
 
