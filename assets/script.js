@@ -108,7 +108,7 @@ const createPasswordButton = (password) => {
     
     const rect = passwordButton.getBoundingClientRect();
     tooltip.style.left = rect.left + rect.width / 2 + 'px';
-    tooltip.style.top = rect.top - 30 + 'px';
+    tooltip.style.top = rect.bottom - 80 + 'px';
   
     // Append the tooltip to the body
     document.body.appendChild(tooltip);
@@ -118,7 +118,7 @@ const createPasswordButton = (password) => {
     }, 2000);
   });
 
-  //Finally, we are "return"ed our "passwordButton".
+  
   return passwordButton;
 };
 
