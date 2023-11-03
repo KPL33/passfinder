@@ -107,8 +107,9 @@ const createPasswordButton = (password) => {
     tooltip.classList.add('tooltip');
     
     const rect = passwordButton.getBoundingClientRect();
+    const viewportOffset = rect.top + window.scrollY;
     tooltip.style.left = rect.left + rect.width / 2 + 'px';
-    tooltip.style.top = rect.bottom - 80 + 'px';
+    tooltip.style.top = viewportOffset -140+ 'px';
   
     // Append the tooltip to the body
     document.body.appendChild(tooltip);

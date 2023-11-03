@@ -217,7 +217,8 @@ textarea::placeholder {
 
 .tooltip {
   display: block; /* Initially hidden */
-  font-size: 12px;
+  font-size: 28px;
+  font-family: "Russo One", sans-serif;
   padding: 5px 10px;
   background-color: var(--black);
   color: var(--yellow);
