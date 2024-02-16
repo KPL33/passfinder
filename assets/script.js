@@ -3,6 +3,8 @@ const charError = document.querySelector('#char-error');
 const generateBtn = document.querySelector('.generate');
 const maxPass = 10;
 
+const charInput = document.querySelector("#char-choice");
+
 let passwordLength;
 let includeUpper;
 let includeLower;
@@ -181,16 +183,7 @@ selectAllCheckbox.addEventListener('change', () => {
   includeSpecial = selectAllCheckbox.checked;
 });
 
-generateBtn.addEventListener('click', () => {
-  const charInput = document.querySelector('#char-choice');
-
-  charInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      generateBtn.click();
-    }
-  });
-  
+generateBtn.addEventListener('click', () => {  
   const charInputValue = charInput.value;
   passwordLength = parseInt(charInputValue);
 
@@ -216,6 +209,12 @@ generateBtn.addEventListener('click', () => {
     const passwordButton = createPasswordButton(newPass);
     historyArea.appendChild(passwordButton);
 
+    const scrollAmount = window.innerHeight * 0.9;
+    window.scrollBy({
+      top: scrollAmount,
+      behavior: "smooth",
+    });
+
     const displayedButtons = document.querySelectorAll('.password-button');
 
     if (displayedButtons.length > maxPass) {
@@ -227,6 +226,13 @@ generateBtn.addEventListener('click', () => {
 
     populatePasswordHistory();
     updateTitleVisibility(); 
+  }
+});
+
+charInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    generateBtn.click();
   }
 });
 
